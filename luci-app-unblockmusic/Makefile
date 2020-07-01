@@ -20,12 +20,6 @@ define Package/$(PKG_NAME)/config
   source "$(SOURCE)/Config.in"
 endef
 
-define Package/$(PKG_NAME)/postinst
-#!/bin/sh
-chmod a+x $${IPKG_INSTROOT}/etc/init.d/* >/dev/null 2>&1
-exit 0
-endef
-
 PKG_LICENSE:=Apache-2.0
 
 LUCI_TITLE:=LuCI support for Unblock NeteaseCloudMusic
