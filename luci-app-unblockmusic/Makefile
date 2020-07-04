@@ -28,12 +28,6 @@ LUCI_PKGARCH:=all
 
 PKG_MAINTAINER:=openwrt
 
-define Package/$(PKG_NAME)/postinst
-#!/bin/sh
-chmod a+x $${IPKG_INSTROOT}/etc/init.d/unblockmusic >/dev/null 2>&1
-exit 0
-endef
-
 include $(TOPDIR)/feeds/luci/luci.mk
 
 # call BuildPackage - OpenWrt buildroot signature
