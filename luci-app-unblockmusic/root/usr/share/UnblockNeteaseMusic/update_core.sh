@@ -55,6 +55,7 @@ function update_core(){
 	echo -e "Succeeded in updating core." >/tmp/unblockmusic_update.log
 	echo -e "Local version: $(cat /usr/share/UnblockNeteaseMusic/local_ver 2>/dev/null), cloud version: ${latest_ver}.\n" >>/tmp/unblockmusic_update.log
 	
+	chmod a+x /etc/init.d/unblockmusic
 	/etc/init.d/unblockmusic restart
 }
 
