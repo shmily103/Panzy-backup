@@ -20,6 +20,8 @@ define Package/$(PKG_NAME)/config
   source "$(SOURCE)/Config.in"
 endef
 
+DEPENDS:=+!wget&&!curl:wget +UnblockNeteaseMusic
+
 PKG_LICENSE:=Apache-2.0
 
 LUCI_TITLE:=LuCI support for Unblock NeteaseCloudMusic
