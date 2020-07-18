@@ -73,6 +73,9 @@ msgstr "自动更新"
 msgid "Access control"
 msgstr "访问控制"
 
+msgid "Server-Side"
+msgstr "服务器端"
+
 msgid "Set Blacklist"
 msgstr "黑名单设置"
 
