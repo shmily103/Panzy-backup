@@ -105,7 +105,7 @@ $(call Package/v2ray-core/Default/description)
 endef
 
 define Package/v2ray/config
-	source "$(SOURCE)/Config-mini.in"
+	source "$(SOURCE)/Config.in"
 endef
 
 V2RAY_SED_ARGS:=
@@ -330,11 +330,11 @@ define Package/v2ray/install
 
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/v2ray $(1)/usr/bin
 
-ifneq ($(CONFIG_PACKAGE_v2ray_mini_exclude_v2ctl),y)
+ifneq ($(CONFIG_PACKAGE_v2ray_exclude_v2ctl),y)
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/v2ctl $(1)/usr/bin
 endif
 
-ifneq ($(CONFIG_PACKAGE_v2ray_mini_exclude_assets),y)
+ifneq ($(CONFIG_PACKAGE_v2ray_exclude_assets),y)
 	$(INSTALL_DATA) \
 		$(PKG_BUILD_DIR)/release/config/{geoip,geosite}.dat \
 		$(1)/usr/bin
