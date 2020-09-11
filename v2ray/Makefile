@@ -19,7 +19,7 @@ PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
 PKG_MAINTAINER:=Xingwang Liao <kuoruan@gmail.com>
 
-PKG_BUILD_DEPENDS:=golang/host PACKAGE_v2ray-core-mini:upx/host
+PKG_BUILD_DEPENDS:=golang/host PACKAGE_v2ray:upx/host
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 
@@ -92,19 +92,19 @@ $(call Package/v2ray-core/Default/description)
   This package contains v2ray, v2ctl, geoip.dat and geosite.dat.
 endef
 
-define Package/v2ray-core-mini
+define Package/v2ray
 $(call Package/v2ray-core/Default)
   TITLE+= (Minimal)
   VARIANT:=mini
   PROVIDES:=v2ray
 endef
 
-define Package/v2ray-core-mini/description
+define Package/v2ray/description
 $(call Package/v2ray-core/Default/description)
   This package contains only v2ray.
 endef
 
-define Package/v2ray-core-mini/config
+define Package/v2ray/config
 	source "$(SOURCE)/Config-mini.in"
 endef
 
@@ -323,7 +323,7 @@ define Package/v2ray-core/install
 		$(1)/usr/bin
 endef
 
-define Package/v2ray-core-mini/install
+define Package/v2ray/install
 	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
 
 	$(INSTALL_DIR) $(1)/usr/bin
@@ -348,5 +348,5 @@ endif
 
 $(eval $(call GoBinPackage,v2ray-core))
 $(eval $(call BuildPackage,v2ray-core))
-$(eval $(call GoBinPackage,v2ray-core-mini))
-$(eval $(call BuildPackage,v2ray-core-mini))
+$(eval $(call GoBinPackage,v2ray))
+$(eval $(call BuildPackage,v2ray))
