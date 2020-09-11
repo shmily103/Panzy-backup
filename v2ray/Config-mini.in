@@ -1,5 +1,5 @@
 menu "V2Ray Mini Configuration"
-	depends on PACKAGE_v2ray-core-mini
+	depends on PACKAGE_v2ray
 
 choice
 	prompt "JSON Config Support"
