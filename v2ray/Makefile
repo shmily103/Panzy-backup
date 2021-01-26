@@ -38,7 +38,7 @@ GO_PKG_LDFLAGS_X:= \
 	$(GO_PKG).codename=OpenWrt
 
 include $(INCLUDE_DIR)/package.mk
-include $(TOPDIR)/feeds/packages/lang/golang/golang-package.mk
+include $(TOPDIR)/package/Panzy/golang/golang-package.mk
 
 define Package/$(PKG_NAME)
   TITLE:=A platform for building proxies
