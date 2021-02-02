@@ -23,3 +23,6 @@ git clone https://github.com/shmily103/Panzy.git package/Panzy
 chmod a+x package/Panzy/luci-app-unblockmusic/root/etc/init.d/unblockmusic
 
 rm -rf package/feeds/packages/kcptun
+
+rm -rf feeds/packages/lang/golang
+cp -rf package/Panzy/golang feeds/packages/lang/golang
