@@ -130,7 +130,7 @@ jobs:
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages *.buildinfo sha256sums *.manifest *.bin
-        echo "::set-env name=FIRMWARE::$PWD"
+        echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
 
     - name: Upload firmware directory
