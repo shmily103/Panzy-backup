@@ -20,7 +20,7 @@ git clone https://github.com/shmily103/Panzy.git package/Panzy
 # Modify Automount
 \cp -rf package/Panzy/mount.hotplug package/system/fstools/files
 # fix unblockmusic
-chmod a+x package/Panzy/luci-app-unblockmusic/root/etc/init.d/unblockmusic
+# chmod a+x package/Panzy/luci-app-unblockmusic/root/etc/init.d/unblockmusic
 
 # rm -rf package/feeds/packages/kcptun
 
