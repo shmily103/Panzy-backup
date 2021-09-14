@@ -26,3 +26,4 @@ chmod a+x package/Panzy/luci-app-unblockneteasemusic/root/etc/init.d/unblocknete
 
 # rm -rf feeds/packages/lang/golang
 # cp -rf package/Panzy/golang feeds/packages/lang/golang
+rm -rf package/Panzy/golang
