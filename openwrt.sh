@@ -16,4 +16,4 @@ rm -rf feeds/packages/lang/golang
 cp -rf package/Panzy/golang feeds/packages/lang/golang
 make defconfig
 make download -j8
-make V=s
+make -j3 V=s

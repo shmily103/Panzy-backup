@@ -1,0 +1,56 @@
+git clone https://git.openwrt.org/openwrt/openwrt.git -b v21.02.0
+cd openwrt
+git clone https://github.com/shmily103/Panzy package/Panzy
+
+./scripts/feeds update -a
+./scripts/feeds install -a
+
+make menuconfig
+
+make download -j3
+
+make package/utils/jsonpath/{clean,compile} V=s
+
+make V=s
+
+
+make ...; echo -e '\a'
+
+make clean
+make dirclean
+make distclean
+
+
+
+修改方法如下
+vi /usr/lib/opkg/status
+在 vi 的 normal 模式下替换a60e1decc7262b7aff1e5f054fe9598f 为官方指纹e1dd7676581672f6f0bdb1363506dee1
+先输入英文小写冒号:
+再把下面语句粘贴到冒号后面
+%s/a60e1decc7262b7aff1e5f054fe9598f/e1dd7676581672f6f0bdb1363506dee1/g
+按回车，完成替换操作。
+
+
+sudo apt update
+sudo apt install build-essential ccache ecj fastjar file g++ gawk gettext git java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget python3-distutils python3-setuptools python3-dev rsync subversion swig time xsltproc zlib1g-dev gcc-multilib g++-multilib
+
+# Modify default IP
+sed -i 's/192.168.1.1/192.168.6.1/g' package/base-files/files/bin/config_generate
+# Modify WiFi ON
+sed -i 's/disabled=1/disabled=0/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+# Modify default SSID
+sed -i 's/ssid=OpenWrt/ssid=Panzy/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
+#add packages
+git clone https://github.com/shmily103/Panzy.git package/Panzy
+# Modify Automount
+\cp -rf package/Panzy/mount.hotplug package/system/fstools/files
+# fix unblockmusic
+chmod a+x package/Panzy/luci-app-unblockneteasemusic/root/etc/init.d/unblockneteasemusic
+
+# rm -rf package/feeds/packages/kcptun
+# fix Go
+rm -rf feeds/packages/lang/golang
+cp -rf package/Panzy/golang feeds/packages/lang/golang
+# rm -rf package/Panzy/golang
+
