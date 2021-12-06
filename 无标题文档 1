@@ -54,3 +54,31 @@ rm -rf feeds/packages/lang/golang
 cp -rf package/Panzy/golang feeds/packages/lang/golang
 # rm -rf package/Panzy/golang
 
+
+
+-- 编译openwrt支持USB自动mount功能
+make menuconfig
+1). 添加USB相关支持
+Kernel modules —> USB Support —> <*> kmod-usb-core.  ##默认已经选了
+Kernel modules —> USB Support —> <*> kmod-usb-ohci.  ##默认已选 old usb1.0
+Kernel modules —> USB Support —> <*> kmod-usb-uhci.  ## usb1.1
+Kernel modules —> USB Support —> <*> kmod-usb-storage.
+Kernel modules —> USB Support —> <*> kmod-usb-storage-extras.
+Kernel modules —> USB Support —> <*> kmod-usb2.  ##默认已经选了 usb2.0
+
+2). 添加USB挂载
+Base system —> <*>block-mount
+
+3). 添加自动挂载工具
+Utilities —> Filesystem —> <*> badblocks
+
+4). 添加文件系统支持
+Kernel modules —> Filesystems —> <*> kmod-fs-ext4 (移动硬盘EXT4格式选择)
+Kernel modules —> Filesystems —> <*> kmod-fs-vfat(FAT16 / FAT32 格式 选择)
+
+5). 添加UTF8编码,CP437编码，ISO8859-1编码
+Kernel modules —> Native Language Support —> <*> kmod-nls-utf8
+
+Utilities  ---> disc ---> <*> fdisk.................................... manipulate disk partition table
+Utilities  ---> <*> usbutils................................... USB devices listing utilities
+
