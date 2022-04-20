@@ -29,7 +29,7 @@ vi /usr/lib/opkg/status
 再把下面语句粘贴到冒号后面
 %s/a60e1decc7262b7aff1e5f054fe9598f/e1dd7676581672f6f0bdb1363506dee1/g
 按回车，完成替换操作。
-
+sed -i 's/7f0a84b8442adddb86c639035040722a/a3723f227628558ea929b84a5ead5d14/g' usr/lib/opkg/status
 
 sudo apt update
 sudo apt install build-essential ccache ecj fastjar file g++ gawk gettext git java-propose-classpath libelf-dev libncurses5-dev libncursesw5-dev libssl-dev python python2.7-dev python3 unzip wget python3-distutils python3-setuptools python3-dev rsync subversion swig time xsltproc zlib1g-dev gcc-multilib g++-multilib
