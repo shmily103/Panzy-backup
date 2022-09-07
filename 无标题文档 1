@@ -1,4 +1,4 @@
-git clone https://git.openwrt.org/openwrt/openwrt.git -b v21.02.0
+git clone https://git.openwrt.org/openwrt/openwrt.git -b v22.03.0
 cd openwrt
 git clone https://github.com/shmily103/Panzy package/Panzy
 
